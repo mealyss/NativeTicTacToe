@@ -10,9 +10,12 @@ run: $(BINARY)
 	./$(BINARY)
 
 $(BINARY):
+	@echo "Creating binary directory $(BINARY)" 
 	rm -rf bin
 	mkdir  bin
+	@echo "Building sources"
 	g++ -o $(BINARY) $(CXXFLAGS) $(SOURCE) $(LIBRARIES)
+	@echo "Done."
 
 clear: 
 	rm -f $(BINARY)
