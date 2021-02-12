@@ -13,7 +13,7 @@ namespace stg
 	{
 	public:
 		StateMachine();
-		~StateMachine();
+		~StateMachine()	{}
 
 		void addState(GameStateRef newState, bool isReplacing = true);
 		void removeState();
