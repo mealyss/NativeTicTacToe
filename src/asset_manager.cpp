@@ -1,4 +1,4 @@
-#include "AssetManager.h"
+#include "asset_manager.h"
 
 namespace stg
 {
@@ -7,24 +7,24 @@ void AssetManager::loadTexture(std::string name, std::string fileName)
 {
 	sf::Texture texture;
 	if (texture.loadFromFile(fileName))
-		this->_textures[name] = texture;
+		m_textures[name] = texture;
 }
 
 sf::Texture& AssetManager::getTexture(std::string name)
 {
-	return this->_textures[name];
+	return m_textures[name];
 }
 
 void AssetManager::loadFont(std::string name, std::string fileName)
 {
 	sf::Font font;
 	if (font.loadFromFile(fileName))
-		this->_fonts[name] = font;
+		m_fonts[name] = font;
 }
 
 sf::Font& AssetManager::getFont(std::string name)
 {
-	return this->_fonts[name];
+	return m_fonts[name];
 }
 
 }

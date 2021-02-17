@@ -2,9 +2,10 @@
 
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "StateMachine.h"
-#include "AssetManager.h"
-#include "InputManager.h"
+
+#include "asset_manager.h"
+#include "input_manager.h"
+#include "state_machine.h"
 
 namespace stg
 {
@@ -26,8 +27,8 @@ public:
 	~Game();
 private:
 	const float DELTA_TIME = 1.0f / 60.0f;
-	sf::Clock _clock;
-	GameDataRef _gameData = std::make_shared<GameData>();
+	sf::Clock m_clock;
+	GameDataRef m_gameData = std::make_shared<GameData>();
 
 	void run();
 

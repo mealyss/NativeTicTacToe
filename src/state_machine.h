@@ -3,7 +3,7 @@
 #include <memory>
 #include <stack>
 
-#include "GameState.h"
+#include "game_state.h"
 
 namespace stg
 {
@@ -22,12 +22,12 @@ namespace stg
 
 		GameStateRef& getActiveState();
 	private:
-		std::stack<GameStateRef> _states;
-		GameStateRef _newState;
+		std::stack<GameStateRef> m_states;
+		GameStateRef m_newState;
 
-		bool _isAdding;
-		bool _isReplacing;
-		bool _isRemoving;
+		bool m_isAdding;
+		bool m_isReplacing;
+		bool m_isRemoving;
 	};
 
 }
