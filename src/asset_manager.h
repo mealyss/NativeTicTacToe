@@ -19,9 +19,13 @@ public:
 	void loadFont(std::string name, std::string fileName);
 	sf::Font& getFont(std::string name);
 
+	void loadImage(std::string name, std::string fileName);
+	sf::Image& getImage(std::string name);
+
 private:
 	std::map<std::string, sf::Texture> m_textures;
 	std::map<std::string, sf::Font> m_fonts;
+	std::map<std::string, sf::Image> m_images;
 };
 
 }

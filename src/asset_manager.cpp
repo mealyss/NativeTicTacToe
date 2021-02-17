@@ -1,3 +1,5 @@
+#include <cassert>
+
 #include "asset_manager.h"
 
 namespace stg
@@ -6,8 +8,9 @@ namespace stg
 void AssetManager::loadTexture(std::string name, std::string fileName)
 {
 	sf::Texture texture;
-	if (texture.loadFromFile(fileName))
-		m_textures[name] = texture;
+	bool success = texture.loadFromFile(fileName);
+	assert(success);
+	m_textures[name] = texture;
 }
 
 sf::Texture& AssetManager::getTexture(std::string name)
@@ -18,13 +21,27 @@ sf::Texture& AssetManager::getTexture(std::string name)
 void AssetManager::loadFont(std::string name, std::string fileName)
 {
 	sf::Font font;
-	if (font.loadFromFile(fileName))
-		m_fonts[name] = font;
+	bool success = font.loadFromFile(fileName);
+	assert(success);
+	m_fonts[name] = font;
 }
 
 sf::Font& AssetManager::getFont(std::string name)
 {
 	return m_fonts[name];
+}
+
+void AssetManager::loadImage(std::string name, std::string fileName)
+{
+	sf::Image image;
+	bool success = image.loadFromFile(fileName);
+	assert(success);
+	m_images[name] = image;
+}
+
+sf::Image& AssetManager::getImage(std::string name)
+{
+	return m_images[name];
 }
 
 }

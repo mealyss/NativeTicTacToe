@@ -1,13 +1,23 @@
 #include "game.h"
+#include "state_machine.h"
+#include "splash_state.h"
+#include "constants.h"
 
 namespace stg
 {
 
 Game::Game(int widht, int height, std::string title)
 {
-	this->m_gameData->window.create(sf::VideoMode(widht, height), title,
+	m_gameData->window.create(sf::VideoMode(widht, height), title,
 									sf::Style::Close | sf::Style::Titlebar);
-	this->run();
+
+	m_gameData->assetManager.loadImage("logo", LOGO_FILEPATH);
+	auto icon = m_gameData->assetManager.getImage("logo");
+	m_gameData->window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+
+	// Go to the splash screen
+	m_gameData->stateMachine.addState(GameStateRef(new SplashState(m_gameData)), true);
+	run();
 }
 
 

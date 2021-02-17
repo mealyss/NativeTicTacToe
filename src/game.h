@@ -24,7 +24,7 @@ class Game
 {
 public:
 	Game(int widht, int height, std::string title);
-	~Game();
+	~Game() {}
 private:
 	const float DELTA_TIME = 1.0f / 60.0f;
 	sf::Clock m_clock;
