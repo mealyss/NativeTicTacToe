@@ -6,7 +6,7 @@ Firstable, SFML Framework needed to intsall:
 ```
 sudo apt install libsfml
 ```
-And if your system is GNU/Linux 64-bit, you can just run `./NativeTtt`.
+And if your system is GNU/Linux 64-bit, you can just run `./NativeTtt`. 
 Also, you can `build` the game yourself.
 
 ## Build

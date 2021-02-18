@@ -1,16 +1,14 @@
 #include <sstream>
 #include <iostream>
 
-#include "constants.h"
 #include "splash_state.h"
+#include "main_menu_state.h"
+#include "constants.h"
 
 namespace stg
 {
 
-SplashState::SplashState(GameDataRef gameData) : m_gameData(gameData)
-{
-
-}
+SplashState::SplashState(GameDataRef gameData) : m_gameData(gameData) {}
 
 void SplashState::initialize()
 {
@@ -35,8 +33,9 @@ void SplashState::update(float dt)
 {
 	if (m_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
 	{
-		// TODO Swich to the main menu
+		// Swich to the main menu
 		LOG("Go to the main menu");
+		m_gameData->stateMachine.addState(GameStateRef(new MainMenuState(m_gameData)), true);
 	}
 }
 
